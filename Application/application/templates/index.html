@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %} 
+    <h3>KILIMO HIGH SCHOOL</h3>
+
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>All Streams</h4>
+            {% if streams %}
+                {% for stream in streams %}
+                <ul>
+                    <li>
+                        <a href="/students/{{stream.id}}">{{stream.name}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            {% else %}
+                <p>No streams yet!</p>
+            {% endif %}
+
+            <a href="{% url 'create_stream' %}" class="btn btn-primary">Create new stream</a>
+        </div>
+
+        <br><br>
+
+        <div class="col-md-6">
+            <h4>All students</h4>
+            {% if students %}
+            {% for student in students %}
+            <ul>
+                <li>
+                    <a href="/student/{{student.id}}">{{student.first_name}} {{student.last_name}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+            {% else %}
+            <p>No students yet!</p>
+            {% endif %}
+
+            <a href="{% url 'create_student' %}" class="btn btn-primary">Add new student</a>
+        </div>
+    </div>
+{% endblock %}

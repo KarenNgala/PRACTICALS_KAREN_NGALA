@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Student details for {{student.first_name}} {{student.last_name}}</h4>
+
+<p>Age: {{student.age}} </p>
+<p>Class: {{student.stream}} </p>
+
+<a href="/edit/{{student.id}}">Edit details</a> <br>
+<a href="/delete/{{student.id}}">Delete student</a>
+
+{% endblock %}
